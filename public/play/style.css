@@ -1,0 +1,285 @@
+body {
+    overflow-x: hidden;
+    z-index: inherit !important;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.center {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.game-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
+    min-width: 100%;
+    min-height: 100%;
+    height: 100%;
+    filter: blur(5px);
+    /* Adjust the blur radius as needed */
+}
+
+#play-now-btn {
+    margin-top: 30% !important;
+    width: 12vw;  /* Make it square */
+    height: 5vw;  /* Set the height */
+    background-color: #fe191e !important;
+    border: 0 !important;
+    font-size: 19px;
+    position: relative;
+    z-index: 1 !important;
+    transition: 0.7s;
+    color: #fff;
+    display: flex; /* Optional: To center text inside the button */
+    justify-content: center; /* Optional: Horizontally center the text */
+    align-items: center; /* Optional: Vertically center the text */
+}
+
+#play-now-btn::before,
+#play-now-btn::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    border-radius: 50%;
+    transition: 0.0s;  /* Ensure transition is applied to the pseudo-elements as well */
+}
+
+#play-now-btn::before {
+    left: -25%;  /* Position the left semicircle */
+    background-color: inherit;  /* Inherit the background color from the parent */
+}
+
+#play-now-btn::after {
+    right: -25%;  /* Position the right semicircle */
+    background-color: inherit;  /* Inherit the background color from the parent */
+}
+
+#play-now-btn:hover {
+    background-color: #001377 !important;  /* Change background color on hover */
+    position: relative;
+    z-index: 1 !important;
+}
+
+
+
+
+
+
+.loading-iframe {
+    position: absolute; /* Position the loading iframe on top */
+    z-index: 999999999999; /* High z-index for loading iframe */
+}
+
+.overlay-iframe {
+    position: absolute; /* Position another iframe on top if needed */
+    top: 0;
+    left: 0;
+    z-index: 9999999999999; /* Higher z-index for overlay iframe */
+}
+
+
+.fullscreen-btn{
+    color: #fff !important;
+}
+.fullscreen-btn:hover{
+    /* color: #e3e3e3 !important; */
+    border-radius: 5px !important;
+    border: 1px solid #fff !important;
+}
+
+.fullscreen-btn-disabled{
+    color: #525252 !important;
+}
+.fullscreen-btn-disabled:hover{
+    color: #525252 !important;
+    border: 0 !important;
+}
+
+.bottom-bar-center {
+    flex-grow: 1; /* Allows the center div to take up space */
+}
+
+#hide-bar-btn{
+    background-color: transparent;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+#exit-fullscreen-btn{
+    background-color: transparent;
+    color: #fff;
+    border: 0;
+    font-size: 17px;
+}
+
+.game-bar-name{
+    font-size: 23px;
+    font-weight:500;
+}
+
+#bottom-bar {
+    /* position: absolute; */
+    background-color: #001377;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensure it sits above other content */
+}
+
+.game-iframe {
+    width: 100%;
+    height: calc(100vh - 50px); /* Adjust height based on your design */
+}
+
+.bottom-bar-logo {
+    width: 20px; /* Logo size */
+    height: 20px; /* Logo size */
+}
+
+
+
+.hidden {
+    display: none !important; /* Ensure this rule takes precedence */
+}
+
+
+                        #game-player {
+                            position: relative;
+                            width: 100%;
+                        }
+                        
+                        #game-player iframe {
+                            border: none;
+                            display: block;
+                        }
+                        
+                        #bottom-bar {
+                            display: none; /* Hidden by default, only shown in fullscreen */
+                        }
+                        
+                        /* Fullscreen styles */
+                        #game-player:fullscreen {
+                            background: black;
+                            position: relative; /* Needed for absolute positioning of bottom-bar */
+                        }
+                        
+                        #game-player:fullscreen iframe {
+                            height: 100vh;
+                            width: 100%;
+                            max-height: 100%;
+                        }
+                        .calc-height {
+                            height: calc(100vh - 50px) !important;
+                        }
+                        
+                        #game-player:fullscreen #bottom-bar {
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            height: 50px;
+                            background-image: linear-gradient(to right, #001377, #fe191e) !important;
+                            z-index: 1000;
+                        }
+                        
+                        /* Vendor prefixes for better browser support */
+                        #game-player:-webkit-full-screen {
+                            background: black;
+                            position: relative;
+                        }
+                        
+                        #game-player:-webkit-full-screen iframe {
+                            height: 100vh;
+                            width: 100%;
+                        }
+
+                        #random-games {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#random-games .randcard {
+  max-width: 50%;
+  position: relative;
+  overflow: hidden; /* Ensures content stays within the card */
+}
+
+#random-games .randcard img {
+  border-radius: 10px;
+  width: 100%; /* Ensure the image spans the card */
+  max-width: 120px;
+  height: auto; /* Maintain aspect ratio */
+}
+
+#random-games .randcard .card-title {
+  display: flex; /* Allows centering */
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+  color: #fff; /* White text */
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px; /* Match the image border */
+  opacity: 0; /* Hide by default */
+  transition: opacity 0.2s ease-in-out; /* Smooth transition */
+}
+
+#random-games .randcard:hover .card-title {
+  opacity: 1; /* Show the title on hover */
+}
+
+/* #random-games .randcard:hover { */
+  /* background-color: #001377; */
+/* } */
+
+
+
+                        
+                        #game-player:-webkit-full-screen #bottom-bar {
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0; 
+                            right: 0;
+                            height: 50px;
+                            background-image: linear-gradient(to right, #001377, #fe191e) !important;
+                            z-index: 1000; 
+                        }
+                        
+                        #game-player:-moz-full-screen {
+                            background: black;
+                            position: relative;
+                        }
+                        
+                        #game-player:-moz-full-screen iframe {
+                            height: 100vh;
+                            width: 100%;
+                        }
+                        
+                        #game-player:-moz-full-screen #bottom-bar {
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            height: 50px;
+                            background-image: linear-gradient(to right, #001377, #fe191e) !important;
+                            z-index: 1000;
+                        }
